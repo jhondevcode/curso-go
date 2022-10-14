@@ -1,6 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
+
+// Closure
+func repeat(n int) func(text string) string {
+	return func(text string) string {
+		return strings.Repeat(text, n)
+	}
+}
 
 func main() {
 	fmt.Println("Inicio del programa")
@@ -26,6 +36,15 @@ func main() {
 
 	fmt.Println(Suma(10, 20, 30, 40, 50))
 	fmt.Printf("%T\n", Suma)
+
+	// Using closures
+	repeat3 := repeat(3)
+	fmt.Println(repeat3("Hola"))
+	fmt.Println(repeat3("Mundo"))
+
+	repeat5 := repeat(5)
+	fmt.Println(repeat5("Alex"))
+	fmt.Println(repeat5("Roel"))
 
 	fmt.Println("Terminando programa")
 }
